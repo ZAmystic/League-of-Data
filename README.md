@@ -1,7 +1,7 @@
 # WORK IN PROGRESS : )
 
-Navbar 90%
-Home Page 5%
+Navbar 90% <br>
+Home Page 5% <br>
 The rest 0%
 
 Created by 
