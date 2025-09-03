@@ -12,9 +12,9 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   
   const navItems: NavItem[] = [
-    { label: 'Home', href: '#home' },
     { label: 'Dashboard', href: '#dashboard' },
-    { label: 'Analytics', href: '#analytics' },
+    { label: 'Planning', href: '#planning' },
+    { label: 'Study Hall', href: '#study' },
     { label: 'Settings', href: '#settings' },
     { label: 'Profile', href: '#profile' },
   ];
@@ -32,6 +32,17 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <>
       <div className="dashboard">
@@ -39,7 +50,7 @@ function App() {
           <div className="navbar-container">
             {/* Logo */}
             <div className="navbar-logo">
-              <a href="#home">League of Data</a>
+              <a id="logo_p" href="#home">League of Data</a>
             </div>
 
             {/* Desktop Navigation */}
@@ -64,6 +75,8 @@ function App() {
               <span className="navbar-toggle-icon"></span>
             </button>
           </div>
+
+              
 
           {/* Mobile Navigation */}
           <div className={`navbar-mobile ${isMenuOpen ? 'active' : ''}`}>

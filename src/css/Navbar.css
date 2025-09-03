@@ -137,8 +137,12 @@
   color: #4361ee;
 }
 
+#logo_p{
+  color: #4361ee;
+}
+
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .navbar-nav {
     display: none;
   }
