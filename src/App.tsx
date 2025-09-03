@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import './css/Navbar.css';
+import './css/Dashboard.css';
 
 interface NavItem {
   label: string;
@@ -69,14 +70,13 @@ function App() {
               className={`navbar-toggle ${isMenuOpen ? 'active' : ''}`}
               onClick={toggleMenu}
               aria-label="Toggle navigation menu"
+              aria-expanded={isMenuOpen}
             >
               <span className="navbar-toggle-icon"></span>
               <span className="navbar-toggle-icon"></span>
               <span className="navbar-toggle-icon"></span>
             </button>
           </div>
-
-              
 
           {/* Mobile Navigation */}
           <div className={`navbar-mobile ${isMenuOpen ? 'active' : ''}`}>
@@ -95,6 +95,29 @@ function App() {
             </ul>
           </div>
         </nav>
+
+        {/* Dashboard Layout */}
+        <div className="dashboard-layout">
+          {/* Main Content */}
+          <main className="dashboard-main">
+            <section id="dashboard" className="dashboard-section">
+              <div className="dashboard-cards">
+                <div className="card">
+                  <h3>Users</h3>
+                  <p>1,245 Active</p>
+                </div>
+                <div className="card">
+                  <h3>Revenue</h3>
+                  <p>$12,430</p>
+                </div>
+                <div className="card">
+                  <h3>Performance</h3>
+                  <p>87% uptime</p>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
       </div>
     </>
   );
