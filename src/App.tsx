@@ -103,16 +103,16 @@ function App() {
             <section id="dashboard" className="dashboard-section">
               <div className="dashboard-cards">
                 <div className="card">
-                  <h3>Users</h3>
-                  <p>1,245 Active</p>
+                  <h3>Active Users</h3>
+                  <p>2 Active</p>
                 </div>
                 <div className="card">
-                  <h3>Revenue</h3>
-                  <p>$12,430</p>
+                  <h3>Acedemic Performance</h3>
+                  <p>50%</p>
                 </div>
                 <div className="card">
-                  <h3>Performance</h3>
-                  <p>87% uptime</p>
+                  <h3>Outstanding Assignments</h3>
+                  <p>3</p>
                 </div>
               </div>
             </section>
