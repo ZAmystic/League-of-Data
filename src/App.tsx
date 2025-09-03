@@ -1,11 +1,143 @@
+<<<<<<< Updated upstream
 import './App.css'
 
 function App() {
   return (
     <>
       
+=======
+import { useState, useEffect } from 'react';
+import './App.css';
+import './css/Navbar.css';
+import './css/Dashboard.css';
+
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const navItems: NavItem[] = [
+    { label: 'Dashboard', href: '#dashboard' },
+    { label: 'Planning', href: '#planning' },
+    { label: 'Study Hall', href: '#study' },
+    { label: 'Settings', href: '#settings' },
+    { label: 'Profile', href: '#profile' },
+  ];
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <>
+      <div className="dashboard">
+        {/* Navbar */}
+        <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+          <div className="navbar-container">
+            <div className="navbar-logo">
+              <a id="logo_p" href="#home">League of Data</a>
+            </div>
+
+            <ul className="navbar-nav">
+              {navItems.map((item) => (
+                <li key={item.label} className="nav-item">
+                  <a href={item.href} className="nav-link">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <button
+              className={`navbar-toggle ${isMenuOpen ? 'active' : ''}`}
+              onClick={toggleMenu}
+              aria-label="Toggle navigation menu"
+            >
+              <span className="navbar-toggle-icon"></span>
+              <span className="navbar-toggle-icon"></span>
+              <span className="navbar-toggle-icon"></span>
+            </button>
+          </div>
+
+<<<<<<< Updated upstream
+              
+
+          {/* Mobile Navigation */}
+=======
+>>>>>>> Stashed changes
+          <div className={`navbar-mobile ${isMenuOpen ? 'active' : ''}`}>
+            <ul className="navbar-nav-mobile">
+              {navItems.map((item) => (
+                <li key={item.label} className="nav-item-mobile">
+                  <a
+                    href={item.href}
+                    className="nav-link-mobile"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+
+        {/* Dashboard Layout */}
+        <div className="dashboard-layout">
+
+          {/* Main Content */}
+          <main className="dashboard-main">
+            <section id="dashboard" className="dashboard-section">
+            
+              <div className="dashboard-cards">
+                <div className="card">
+                  <h3>Users</h3>
+                  <p>1,245 Active</p>
+                </div>
+                <div className="card">
+                  <h3>Revenue</h3>
+                  <p>$12,430</p>
+                </div>
+                <div className="card">
+                  <h3>Performance</h3>
+                  <p>87% uptime</p>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+>>>>>>> Stashed changes
     </>
   )
 }
 
+<<<<<<< Updated upstream
 export default App
+=======
+export default App;
+>>>>>>> Stashed changes
