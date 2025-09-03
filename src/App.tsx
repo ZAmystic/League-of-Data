@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream
-import './App.css'
-
-function App() {
-  return (
-    <>
-      
-=======
 import { useState, useEffect } from 'react';
 import './App.css';
 import './css/Navbar.css';
@@ -19,7 +11,7 @@ interface NavItem {
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  
   const navItems: NavItem[] = [
     { label: 'Dashboard', href: '#dashboard' },
     { label: 'Planning', href: '#planning' },
@@ -55,13 +47,14 @@ function App() {
   return (
     <>
       <div className="dashboard">
-        {/* Navbar */}
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
           <div className="navbar-container">
+            {/* Logo */}
             <div className="navbar-logo">
               <a id="logo_p" href="#home">League of Data</a>
             </div>
 
+            {/* Desktop Navigation */}
             <ul className="navbar-nav">
               {navItems.map((item) => (
                 <li key={item.label} className="nav-item">
@@ -72,10 +65,12 @@ function App() {
               ))}
             </ul>
 
-            <button
+            {/* Mobile menu button */}
+            <button 
               className={`navbar-toggle ${isMenuOpen ? 'active' : ''}`}
               onClick={toggleMenu}
               aria-label="Toggle navigation menu"
+              aria-expanded={isMenuOpen}
             >
               <span className="navbar-toggle-icon"></span>
               <span className="navbar-toggle-icon"></span>
@@ -83,18 +78,13 @@ function App() {
             </button>
           </div>
 
-<<<<<<< Updated upstream
-              
-
           {/* Mobile Navigation */}
-=======
->>>>>>> Stashed changes
           <div className={`navbar-mobile ${isMenuOpen ? 'active' : ''}`}>
             <ul className="navbar-nav-mobile">
               {navItems.map((item) => (
                 <li key={item.label} className="nav-item-mobile">
-                  <a
-                    href={item.href}
+                  <a 
+                    href={item.href} 
                     className="nav-link-mobile"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -108,11 +98,9 @@ function App() {
 
         {/* Dashboard Layout */}
         <div className="dashboard-layout">
-
           {/* Main Content */}
           <main className="dashboard-main">
             <section id="dashboard" className="dashboard-section">
-            
               <div className="dashboard-cards">
                 <div className="card">
                   <h3>Users</h3>
@@ -131,13 +119,8 @@ function App() {
           </main>
         </div>
       </div>
->>>>>>> Stashed changes
     </>
-  )
+  );
 }
 
-<<<<<<< Updated upstream
-export default App
-=======
 export default App;
->>>>>>> Stashed changes
