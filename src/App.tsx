@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './App.css';
+import './css/App.css';
 import './css/Navbar.css';
 import './css/Dashboard.css';
 
@@ -13,7 +13,7 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   
   const navItems: NavItem[] = [
-    { label: 'Dashboard', href: '#dashboard' },
+    { label: 'Dashboard', href: '#' },
     { label: 'Planning', href: '#planning' },
     { label: 'Study Hall', href: '#study' },
     { label: 'Settings', href: '#settings' },

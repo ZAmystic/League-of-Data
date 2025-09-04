@@ -1,6 +1,6 @@
 .dashboard-layout {
   display: flex;
-  min-height: calc(100vh - 80px);
+  /* min-height: calc(100vh - 80px); */
   margin-top: 15px;
 }
 
