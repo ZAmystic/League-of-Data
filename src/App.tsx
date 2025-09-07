@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./css/App.css";
 import "./css/Navbar.css";
 import "./css/Dashboard.css";
+import logo from "./assets/images/logo.png"
 
 interface NavItem {
   label: string;
@@ -55,8 +56,8 @@ function App() {
           <div className="navbar-container">
             {/* Logo */}
             <div className="navbar-logo">
-              <a id="logo_p" href="#home">
-                League of Data
+              <a href="App.tsx">
+                <img className="navbar-logo-img" src={logo} alt="logo" />
               </a>
             </div>
 
@@ -112,29 +113,6 @@ function App() {
             </ul>
           </div>
         </nav>
-
-        {/* Dashboard Layout */}
-        <div className="dashboard-layout">
-          {/* Main Content */}
-          <main className="dashboard-main">
-            <section id="dashboard" className="dashboard-section">
-              <div className="dashboard-cards">
-                <div className="card">
-                  <h3>Active Users</h3>
-                  <p>2 Active</p>
-                </div>
-                <div className="card">
-                  <h3>Acedemic Performance</h3>
-                  <p>50%</p>
-                </div>
-                <div className="card">
-                  <h3>Outstanding Assignments</h3>
-                  <p>3</p>
-                </div>
-              </div>
-            </section>
-          </main>
-        </div>
       </div>
     </>
   );
