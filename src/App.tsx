@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import "./css/App.css";
 import "./css/Navbar.css";
 import "./css/Dashboard.css";
-import logo from "./assets/images/logo.png"
+import "./css/Home.css";
+import logo from "./assets/images/logo.png";
 
 interface NavItem {
   label: string;
@@ -68,6 +69,7 @@ function App() {
                   <a href={item.href} className="nav-link">
                     {item.label}
                   </a>
+
                   {item.children && (
                     <ul className="dropdown-menu">
                       {item.children.map((child) => (
@@ -84,7 +86,7 @@ function App() {
             </ul>
 
             {/* Mobile menu button */}
-            <button
+            <button id="menu-icon"
               className={`navbar-toggle ${isMenuOpen ? "active" : ""}`}
               onClick={toggleMenu}
               aria-label="Toggle navigation menu"
