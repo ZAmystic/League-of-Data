@@ -3,6 +3,7 @@ import "./css/App.css";
 import "./css/Navbar.css";
 import "./css/Dashboard.css";
 import "./css/Home.css";
+
 import logo from "./assets/images/logo.png";
 
 interface NavItem {
@@ -14,6 +15,7 @@ interface NavItem {
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeroVisible, setIsHeroVisible] = useState(false);
 
   const navItems: NavItem[] = [
     { label: "Dashboard", href: "#" },
@@ -28,6 +30,13 @@ function App() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
@@ -48,6 +57,10 @@ function App() {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    setIsHeroVisible(true);
   }, []);
 
   return (
@@ -115,6 +128,51 @@ function App() {
             </ul>
           </div>
         </nav>
+
+        {/* Hero Section */}
+        <section className="hero-section">
+          <div className="hero-container">
+            <div className="hero-content">
+              <div className={`hero-text ${isHeroVisible ? 'animate-in' : ''}`}>
+                <h1 className="hero-title">
+                  Welcome to Your
+                  <span className="highlight"> Academic Journey</span>
+                </h1>
+                <p className="hero-subtitle">
+                  Organize your studies, track your progress, and achieve your academic goals 
+                  with our comprehensive learning platform designed for student success.
+                </p>
+                <div className="hero-buttons">
+                  <button 
+                    className="btn btn-primary"
+                    onClick={() => scrollToSection('dashboard')}
+                  >
+                    Get Started
+                  </button>
+                  <button 
+                    className="btn btn-secondary"
+                    onClick={() => scrollToSection('study')}
+                  >
+                    Explore Features
+                  </button>
+                </div>
+              </div>
+              
+              <div className={`hero-visual ${isHeroVisible ? 'animate-in' : ''}`}>
+                <div className="academic-card">
+                  <div className="card-header">
+                    <div className="card-dots">
+                      <span className="dot"></span>
+                      <span className="dot"></span>
+                      <span className="dot"></span>
+                    </div>
+                    <span className="card-title">League of Data</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
