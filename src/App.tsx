@@ -16,6 +16,8 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(false);
+  const [showHeaderNotice, setShowHeaderNotice] = useState(true);
+
 
   const navItems: NavItem[] = [
     { label: "Dashboard", href: "#" },
@@ -65,6 +67,20 @@ function App() {
 
   return (
     <>
+      {showHeaderNotice && (
+        <header id="header">
+          <p id="header-p">
+            This application is currently still in Pre-Alpha phase
+            <button
+              className="close-header-btn"
+              onClick={() => setShowHeaderNotice(false)}
+              aria-label="Close notification"
+            >
+              ✖
+            </button>
+          </p>
+        </header>
+      )}
       <div className="dashboard">
         <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
           <div className="navbar-container">
@@ -139,17 +155,17 @@ function App() {
                   <span className="highlight"> Academic Journey</span>
                 </h1>
                 <p className="hero-subtitle">
-                  Organize your studies, track your progress, and achieve your academic goals 
+                  Organize your studies, track your progress, and achieve your academic goals
                   with our comprehensive learning platform designed for student success.
                 </p>
                 <div className="hero-buttons">
-                  <button 
+                  <button
                     className="btn btn-primary"
                     onClick={() => scrollToSection('dashboard')}
                   >
                     Get Started
                   </button>
-                  <button 
+                  <button
                     className="btn btn-secondary"
                     onClick={() => scrollToSection('study')}
                   >
@@ -157,7 +173,7 @@ function App() {
                   </button>
                 </div>
               </div>
-              
+
               <div className={`hero-visual ${isHeroVisible ? 'animate-in' : ''}`}>
                 <div className="academic-card">
                   <div className="card-header">
