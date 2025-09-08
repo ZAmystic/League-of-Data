@@ -33,6 +33,28 @@
   width: 100%;
 }
 
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -45,11 +67,7 @@
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease-out;
-}
-
-.hero-text.animate-in {
-  opacity: 1;
-  transform: translateY(0);
+  animation: slideInLeft 1s ease-out forwards;
 }
 
 .hero-title {
@@ -128,6 +146,7 @@
 }
 
 .academic-card {
+  animation: slideInRight 1s ease-out forwards;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 20px;
