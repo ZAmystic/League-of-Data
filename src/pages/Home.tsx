@@ -52,6 +52,13 @@ export default function Hero({ scrollToSection }: HeroProps) {
                 </div>
                 <span className="card-title">League of Data</span>
               </div>
+              <div className="card-container">
+                <h1 className="card-container-h1">What is League of Data?</h1>
+                <p className="card-container-p">League of Data is a student-built platform that transforms your academic experience. Designed to integrate seamlessly with Moodle, 
+                   it imports your coursework, deadlines, and academic essentials into a cleaner, more intuitive interface. This nonprofit initiative 
+                   was created by Software Engineering students as a way to sharpen our skills, challenge conventional systems, and build tools that 
+                   genuinely improve student life.</p>
+              </div>
             </div>
           </div>
         </div>

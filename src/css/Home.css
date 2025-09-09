@@ -269,10 +269,25 @@
 
 .card-title {
   font-weight: 500;
-  color: #2c62c7;
   font-size: 1.1rem;
 }
 
+.card-container {
+  text-align: left;
+  width: 100%;
+  max-width: 800px;
+  margin: 1rem auto 0 auto; /* centers the container but keeps content left-aligned */
+  padding: 0 0.5rem;
+  color: #1b1b1b;
+}
+
+.card-container-h1{
+  line-height: 4rem;
+  background: linear-gradient(45deg, #1b52e9 0%, #1a96e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 @media (max-width: 768px) {
 
